@@ -25,7 +25,7 @@ export type SettingsModalProps = {
 export const SettingsModal = ({ open, onClose }: SettingsModalProps) => {
   const { blur, setBlur, isVideoMuted, setVideo, setIsVideoMuted } =
     useSettingsStore();
-  const { text, setText } = useBookStore();
+  const { text, setText, setScroll } = useBookStore();
   const textareaRef = useRef<HTMLTextAreaElement | null>(null);
   const blurInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -54,6 +54,7 @@ export const SettingsModal = ({ open, onClose }: SettingsModalProps) => {
 
     const text = textareaRef.current.value;
     setText(text);
+    setScroll(0);
   };
 
   const saveBlurValue = () => {
